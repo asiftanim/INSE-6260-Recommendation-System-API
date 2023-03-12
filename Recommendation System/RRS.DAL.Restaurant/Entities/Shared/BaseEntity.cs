@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RRS.Data
+namespace RRS.Data.Entities.Shared
 {
-    internal interface IRestaurantRepository
+    public class BaseEntity
     {
+        public int Id { get; set; }
     }
 }

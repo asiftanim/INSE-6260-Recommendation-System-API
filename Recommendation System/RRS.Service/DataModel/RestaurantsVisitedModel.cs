@@ -1,10 +1,8 @@
-﻿using RRS.Core.Shared;
-using System;
-using System.Security.Cryptography.X509Certificates;
+﻿using System;
 
-namespace RRS.Core.Entities
+namespace RRS.Service
 {
-    public class RestaurantCuisin : BaseEntity
+    public class RestaurantsVisitedModel : BaseModel
     {
         public string UserId { get; set; }
         public int PlaceId { get; set; }

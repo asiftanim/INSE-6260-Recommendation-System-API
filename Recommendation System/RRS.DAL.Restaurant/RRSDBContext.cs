@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
-using RRS.Core.Entities;
+using RRS.Data.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;

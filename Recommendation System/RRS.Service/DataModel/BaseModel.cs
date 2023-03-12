@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RRS.Data
+namespace RRS.Service
 {
-    internal interface IRestaurantRepository
+    public class BaseModel
     {
+        public int Id { get; set; }
     }
 }
