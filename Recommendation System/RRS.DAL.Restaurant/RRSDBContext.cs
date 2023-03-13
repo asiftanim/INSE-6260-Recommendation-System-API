@@ -15,6 +15,7 @@ namespace RRS.Core
 
         public virtual DbSet<RestaurantsVisited> RestaurantCuisin { get; set; }
         public virtual DbSet<CuisineTypes> RestaurantRating { get; set; }
+        public virtual DbSet<User> Users { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -22,7 +23,10 @@ namespace RRS.Core
             {
                 IConfigurationRoot configurationRoot = new ConfigurationBuilder().SetBasePath(AppDomain.CurrentDomain.BaseDirectory).AddJsonFile("appsettings.json").Build();
                 string DBConStr = configurationRoot.GetConnectionString("MSSQLConStr");
-                optionsBuilder.UseSqlServer(DBConStr);
+                optionsBuilder.UseSqlServer(DBConStr, builder =>
+                {
+                    builder.EnableRetryOnFailure(5, TimeSpan.FromSeconds(10), null);
+                });
             }
         }
 

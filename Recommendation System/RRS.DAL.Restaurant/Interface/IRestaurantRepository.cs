@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace RRS.Data
 {
-    internal interface IRestaurantRepository
+    public interface IRestaurantRepository
     {
     }
 }

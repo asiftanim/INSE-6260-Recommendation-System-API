@@ -7,7 +7,8 @@ using System.Threading.Tasks;
 
 namespace RRS.Data
 {
-    internal class RestaurantRepository : IRestaurantRepository
+    public class RestaurantRepository : IRestaurantRepository
     {
+
     }
 }

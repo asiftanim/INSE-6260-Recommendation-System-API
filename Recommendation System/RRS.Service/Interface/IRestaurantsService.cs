@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace RRS.Service
 {
-    internal interface ICuisineTypes
+    public interface IRestaurantsService
     {
     }
 }
