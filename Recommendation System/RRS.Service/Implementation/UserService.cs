@@ -38,11 +38,11 @@ namespace RRS.Service.Implementation
             return userModels;
         }
 
-        public UserModel CreateUser(string email, string password)
+        public UserCreateModel CreateUser(UserCreateModel userCreateModel)
         {
-            var user = _userRepository.CreateUser(email, password);
+            var user = _userRepository.CreateUser(userCreateModel.UserId, userCreateModel.Password);
 
-            return new UserModel() { Id = user.Id, UserId = user.UserId, IsNew = user.IsNew};
+            return new UserCreateModel() { Id = user.Id, UserId = user.UserId, IsNew = user.IsNew};
         }
     }
 }

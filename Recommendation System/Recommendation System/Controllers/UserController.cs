@@ -31,9 +31,10 @@ namespace Recommendation_System.Controllers
         }
 
         // POST api/<UserController>
-        [HttpPost]
-        public void Post([FromBody] string value)
+        [HttpPost("CreateUser")]
+        public UserCreateModel CreateUser(UserCreateModel user)
         {
+            return _userService.CreateUser(user);
         }
 
         // PUT api/<UserController>/5
