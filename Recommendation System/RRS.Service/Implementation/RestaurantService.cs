@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace RRS.Service
 {
-    internal class RestaurantsVisited : IRestaurantsVisited
+    public class RestaurantService : IRestaurantsService
     {
     }
 }
