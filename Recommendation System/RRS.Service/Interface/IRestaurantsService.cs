@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RRS.Data.Entities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,5 +9,8 @@ namespace RRS.Service
 {
     public interface IRestaurantsService
     {
+        public List<RestaurantsVisitedModel> GetRestaurantByUserId(string Id);
+        public RestaurantsVisitedModel RateRestaurant(RestaurantsVisitedModel restaurantsVisitedModel);
+        public List<CuisineTypes> GetRandomRestaurants();
     }
 }

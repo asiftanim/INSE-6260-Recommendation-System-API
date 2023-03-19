@@ -13,8 +13,8 @@ namespace RRS.Core
     {
         public RRSDBContext() { }
 
-        public virtual DbSet<RestaurantsVisited> RestaurantCuisin { get; set; }
-        public virtual DbSet<CuisineTypes> RestaurantRating { get; set; }
+        public virtual DbSet<RestaurantsVisited> RestaurantsVisited { get; set; }
+        public virtual DbSet<CuisineTypes> CuisineTypes { get; set; }
         public virtual DbSet<User> Users { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
