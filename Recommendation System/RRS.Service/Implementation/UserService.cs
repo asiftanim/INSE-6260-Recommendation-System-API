@@ -46,6 +46,15 @@ namespace RRS.Service.Implementation
             return new UserCreateModel() { Id = user.Id, UserId = user.UserId, IsNew = user.IsNew};
         }
 
+        public void ImportUsers()
+        {
+            List<String> userIds = _userRepository.GetDistinctUsers();
+            foreach(var userId in userIds)
+            {
+                _userRepository.CreateUser(userId, EncryptString("12345"));
+            }
+        }
+
         public UserModel Login(UserCreateModel userModel)
         {
             var user = _userRepository.GetUserByUserId(userModel.UserId);

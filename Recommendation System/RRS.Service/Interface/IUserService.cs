@@ -7,6 +7,7 @@ namespace RRS.Service.Interface
         public UserModel GetUserByUserId(string id);
         public List<UserModel> GetAllUsers();
         public UserCreateModel CreateUser(UserCreateModel user);
+        public void ImportUsers();
         public UserModel Login(UserCreateModel user);
     }
 }

@@ -31,10 +31,15 @@ namespace RRS.Data.Implementation
 
         public User CreateUser(string email, string password)
         {
-            User newUser = new User() { UserId = email, Password = password, IsNew = true };
+            User newUser = new User() { UserId = email, Password = password, IsNew = false };
             _dbContext.Users.Add(newUser);
             _dbContext.SaveChanges();
             return newUser;
+        }
+
+        public List<String> GetDistinctUsers()
+        {
+            return _dbContext.RestaurantsVisited.Select(x => x.UserId).Distinct().ToList(); 
         }
     }
 }

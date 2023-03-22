@@ -35,6 +35,12 @@ namespace Recommendation_System.Controllers
             return _userService.CreateUser(user);
         }
 
+        [HttpPost("ImportUsers")]
+        public void ImportUsers()
+        {
+            _userService.ImportUsers();
+        }
+
         [HttpPost("Login")]
         public UserModel Login(UserCreateModel user)
         {
