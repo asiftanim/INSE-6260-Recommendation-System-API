@@ -31,7 +31,7 @@ namespace RRS.Data.Implementation
 
         public User CreateUser(string email, string password)
         {
-            User newUser = new User() { UserId = email, Password = password, IsNew = false };
+            User newUser = new User() { UserId = email, Password = password, IsNew = true };
             _dbContext.Users.Add(newUser);
             _dbContext.SaveChanges();
             return newUser;
