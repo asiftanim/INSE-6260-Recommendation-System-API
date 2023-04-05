@@ -17,9 +17,9 @@ namespace Recommendation_System.Controllers
         }
 
         [HttpGet("GetRestaurantByUserId/{id}")]
-        public List<RestaurantsVisitedModel> GetRestaurantByUserId(string Id)
+        public List<RestaurantsVisitedModel> GetRestaurantByUserId(string id)
         {
-            return _restaurantsService.GetRestaurantByUserId(Id);
+            return _restaurantsService.GetRestaurantByUserId(id);
         }
 
         [HttpPost("RateRestaurant")]
