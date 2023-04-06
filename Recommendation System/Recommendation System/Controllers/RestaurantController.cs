@@ -22,6 +22,12 @@ namespace Recommendation_System.Controllers
             return _restaurantsService.GetRestaurantByUserId(id);
         }
 
+        [HttpGet("GetRecommendedRestaurants/{id}")]
+        public List<RestaurantsVisitedModel> GetRecommendedRestaurants(string id)
+        {
+            return _restaurantsService.GetRecommendedRestaurants(id);
+        }
+
         [HttpPost("RateRestaurant")]
         public RestaurantsVisitedModel RateRestaurant(RestaurantsVisitedModel restaurantsVisitedModel)
         {

@@ -2,9 +2,13 @@
 using RRS.Data.Entities;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Net.Http.Headers;
+using System.Runtime.InteropServices.ComTypes;
 using System.Text;
 using System.Threading.Tasks;
+using System.Net.Http.Formatting;
 
 namespace RRS.Service
 {
@@ -30,6 +34,35 @@ namespace RRS.Service
                     Rating = restaurant.Rating
                 });
             }
+            return restaurantList;
+        }
+
+        public List<RestaurantsVisitedModel> GetRecommendedRestaurants(string Id)
+        {
+            List<RestaurantsVisitedModel> restaurantList = new List<RestaurantsVisitedModel>();
+
+            HttpClient client = new HttpClient();
+
+            // Add an Accept header for JSON format.
+            client.DefaultRequestHeaders.Accept.Add(
+            new MediaTypeWithQualityHeaderValue("application/json"));
+
+            HttpResponseMessage response = client.GetAsync($"http://localhost:5000/{Id}").Result;
+
+            if (response.IsSuccessStatusCode)
+            {
+                var data = response.Content.ReadAsAsync<List<RestaurantsVisitedModel>>().Result;
+                foreach (var restaurant in data)
+                {
+                    restaurantList.Add(new RestaurantsVisitedModel()
+                    {
+                        PlaceId = restaurant.PlaceId,
+                        Rating = restaurant.Rating,
+                        Rank = restaurant.Rank
+                    });
+                }
+            }
+
             return restaurantList;
         }
 
