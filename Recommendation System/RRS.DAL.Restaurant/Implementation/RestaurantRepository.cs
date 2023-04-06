@@ -31,7 +31,7 @@ namespace RRS.Data
 
         public List<CuisineTypes> GetRandomRestaurants()
         {
-            return _dbContext.CuisineTypes.OrderBy(x => x.PlaceId).OrderBy(x => Guid.NewGuid()).Take(5).ToList();
+            return _dbContext.CuisineTypes.OrderBy(x => x.PlaceId).OrderBy(x => Guid.NewGuid()).Take(10).ToList();
         }
     }
 }

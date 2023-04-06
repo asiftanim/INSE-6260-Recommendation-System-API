@@ -27,6 +27,13 @@ namespace RRS.Service.Implementation
             return user != null ? new UserModel() { Id = user.Id, UserId = user.UserId, IsNew = user.IsNew } : null;
         }
 
+        public UserModel UpdateUserByUserId(string id)
+        {
+            var user = _userRepository.UpdateUserByUserId(id);
+
+            return user != null ? new UserModel() { Id = user.Id, UserId = user.UserId, IsNew = user.IsNew } : null;
+        }
+
         public List<UserModel> GetAllUsers()
         {
             var users = _userRepository.GetUsers();

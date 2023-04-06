@@ -97,7 +97,7 @@ def generate_recommendation(id):
     m = 10
     #print(ranked_item_score.head(m))
     
-    # print(len(ranked_item_score.index))
+    print(len(ranked_item_score.index))
     if(len(ranked_item_score.index) < 10):
         #pr = get_popular_restaurants(10, ranked_item_score.loc[:,"movie"].astype(str))
         popular_restaurant = data.groupby('PlaceId').agg(Rating = ('Rating', 'count'), PredictedRating = ('Rating', 'mean')).reset_index()
@@ -107,11 +107,11 @@ def generate_recommendation(id):
         merged_ranked_item_score.reset_index(drop=True, inplace=True)
         merged_ranked_item_score.index += 1
         merged_ranked_item_score['Rank'] = merged_ranked_item_score.index
-        #print(merged_ranked_item_score)
+        print(print("Popular/Mix"))
         return merged_ranked_item_score.to_json(orient='records')
     else:
         ranked_item_score.reset_index(drop=True, inplace=True)
         ranked_item_score.index += 1
         ranked_item_score['Rank'] = ranked_item_score.index
-        #print(ranked_item_score)
+        print("All Recommended")
         return ranked_item_score.head(10).to_json(orient='records')

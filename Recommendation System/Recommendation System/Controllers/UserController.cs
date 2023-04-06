@@ -29,6 +29,12 @@ namespace Recommendation_System.Controllers
             return _userService.GetUserByUserId(id);
         }
 
+        [HttpPost("UpdateUserByUserId")]
+        public UserModel UpdateUserByUserId(UserModel user)
+        {
+            return _userService.UpdateUserByUserId(user.UserId);
+        }
+
         [HttpPost("CreateUser")]
         public UserCreateModel CreateUser(UserCreateModel user)
         {

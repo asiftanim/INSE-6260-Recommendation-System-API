@@ -29,6 +29,17 @@ namespace RRS.Data.Implementation
             return _dbContext.Users.Where(u => u.UserId == id).FirstOrDefault();
         }
 
+        public User UpdateUserByUserId(string id)
+        {
+            var user = _dbContext.Users.SingleOrDefault(x => x.UserId == id);
+            if (user != null)
+            {
+                user.IsNew = false;
+                _dbContext.SaveChanges();
+            }
+            return user;
+        }
+
         public User CreateUser(string email, string password)
         {
             User newUser = new User() { UserId = email, Password = password, IsNew = true };
