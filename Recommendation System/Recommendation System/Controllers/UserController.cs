@@ -23,30 +23,34 @@ namespace Recommendation_System.Controllers
             return _userService.GetAllUsers();
         }
 
-        // GET api/<UserController>/5
         [HttpGet("GetUserByUserId/{id}")]
         public UserModel GetUserByUserId(string id)
         {
             return _userService.GetUserByUserId(id);
         }
 
-        // POST api/<UserController>
+        [HttpPost("UpdateUserByUserId")]
+        public UserModel UpdateUserByUserId(UserModel user)
+        {
+            return _userService.UpdateUserByUserId(user.UserId);
+        }
+
         [HttpPost("CreateUser")]
         public UserCreateModel CreateUser(UserCreateModel user)
         {
             return _userService.CreateUser(user);
         }
 
-        // PUT api/<UserController>/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        [HttpPost("ImportUsers")]
+        public void ImportUsers()
         {
+            _userService.ImportUsers();
         }
 
-        // DELETE api/<UserController>/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
+        [HttpPost("Login")]
+        public UserModel Login(UserCreateModel user)
         {
+            return _userService.Login(user);
         }
     }
 }

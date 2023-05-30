@@ -6,9 +6,8 @@ namespace RRS.Service
     {
         public string UserId { get; set; }
         public int PlaceId { get; set; }
-        public int Rating { get; set; }
-        public int FoodRating { get; set; }
-        public int ServiceRating { get; set; }
+        public double Rating { get; set; }
+        public int Rank { get; set; }
     }
 }
 
